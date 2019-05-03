@@ -10,8 +10,7 @@ exports.up = function (knex, Promise) {
             tbl.string('name', 128)
                 .notNullable()
                 .unique();
-            tbl.string('directions',256)
-                
+            tbl.string('directions', 256)
             tbl.integer('dish_id')
                 .unsigned()
                 .notNullable()
@@ -66,7 +65,9 @@ exports.up = function (knex, Promise) {
 
 exports.down = function (knex, Promise) {
     return knex.schema
-        .dropTableIfExists('dishes')
-        .dropTableIfExists('recipes')
+        .dropTableIfExists('recipe_ingredients')
         .dropTableIfExists('ingredients')
+        .dropTableIfExists('dish_recipes')
+        .dropTableIfExists('recipes')
+        .dropTableIfExists('dishes')
 };
